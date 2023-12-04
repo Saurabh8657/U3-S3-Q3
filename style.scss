@@ -1,0 +1,35 @@
+$bg-color: #add8e6;
+
+
+@mixin circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $bg-color;
+    border: green 1px solid;
+}
+@mixin rectangle ($width){
+    width: $width;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border: blue 1px solid;
+    background-color: $bg-color;
+}
+
+@for $i from 1 through 6 {
+    @if $i%2 != 0{
+        .item-#{$i}{
+            @include circle;
+        }
+    }@else {
+        .item-#{$i}{
+            
+            @include rectangle($i*100px);
+        }
+    }
+    
+    
+}
